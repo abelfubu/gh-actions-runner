@@ -1,7 +1,7 @@
 name: echo
-on: push
+on: workflow_dispatch
 jobs:
   echo:
     runs-on: self-hosted
     steps:
-      - run: echo Hello World
+      - run: echo "${{ toJSON(github) }}" | Out-String | ConvertFrom-Json
